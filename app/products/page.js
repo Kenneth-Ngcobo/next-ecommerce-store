@@ -6,10 +6,6 @@ import ErrorPage from "../error";
 export default async function ProductsPage({ searchParams }) {
   const page = parseInt(searchParams.page) || 1;
 
-  try {
-    const products = await fetchProducts(page);
-    return <ProductGrid products={products} currentPage={page} />;
-  } catch (error) {
-    return <ErrorPage error={error} />;
-  }
+  const products = await fetchProducts(page);
+  return <ProductGrid products={products} currentPage={page} />;
 }

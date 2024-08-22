@@ -3,6 +3,10 @@
 import ProductCard from "./ProductCard";
 
 export default function ProductGrid({ products, currentPage }) {
+  if (!products || products.length === 0) {
+    return <div>No products available</div>;
+  }
+
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-3xl font-bold mb-8">
