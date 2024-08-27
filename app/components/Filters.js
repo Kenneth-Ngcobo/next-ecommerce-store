@@ -19,9 +19,7 @@ export default function Filters({
   useEffect(() => {
     async function fetchCategories() {
       try {
-        const response = await fetch(
-          "https://dummyjson.com/products/category-list"
-        );
+        const response = await fetch("http://localhost:2000/categories");
         const data = await response.json();
         setCategories(data);
       } catch (error) {
