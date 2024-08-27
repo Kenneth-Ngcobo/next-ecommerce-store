@@ -4,7 +4,7 @@ export async function fetchProducts(page) {
 
   try {
     const res = await fetch(
-      `http://localhost:2000/products?limit=${PRODUCTS_PER_PAGE}&skip=${
+      `https://dummyjson.com/products?limit=${PRODUCTS_PER_PAGE}&skip=${
         (page - 1) * PRODUCTS_PER_PAGE
       }`
     );
