@@ -1,13 +1,11 @@
 export async function fetchProducts(page) {
-  console.log("fetchProducts");
   const PRODUCTS_PER_PAGE = 20;
-
+  const url = `https://dummyjson.com/products?limit=${PRODUCTS_PER_PAGE}&skip=${
+    (page - 1) * PRODUCTS_PER_PAGE
+  }`;
   try {
-    const res = await fetch(
-      `https://dummyjson.com/products?limit=${PRODUCTS_PER_PAGE}&skip=${
-        (page - 1) * PRODUCTS_PER_PAGE
-      }`
-    );
+    console.log("fetchProducts url = ", url);
+    const res = await fetch(url);
 
     if (!res.ok) {
       throw new Error(
