@@ -1,3 +1,4 @@
+import Filters from "./components/Filters";
 import "./globals.css";
 
 export const metadata = {
@@ -8,7 +9,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <div className="container mx-auto px-4">
+          <Filters />
+          <main>{children}</main>
+        </div>
+      </body>
     </html>
   );
 }
