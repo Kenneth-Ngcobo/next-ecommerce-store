@@ -1,11 +1,12 @@
-export async function fetchProducts2(query) {
+export async function fetchProducts2(query, page) {
+  console.log("fetchProducts2");
   const PRODUCTS_PER_PAGE = 20;
-  const url = `https://dummyjson.com/products?limit=${PRODUCTS_PER_PAGE}&skip=${
+  const url = `http://localhost:2000/products?limit=${PRODUCTS_PER_PAGE}&skip=${
     (page - 1) * PRODUCTS_PER_PAGE
   }&?${query}`;
-
+  console.log("fetchProducts2 url = ", url);
   try {
-    console.log("fetchProducts2 url = ", url);
+    //console.log("fetchProducts2 url = ", url);
     const res = await fetch(url);
 
     if (!res.ok) {
@@ -15,7 +16,8 @@ export async function fetchProducts2(query) {
     }
 
     const data = await res.json();
-    return data.products;
+    //console.log("data = ", data);
+    return data;
   } catch (error) {
     console.error("Error fetching products:", error);
     throw error; // Rethrow the error to handle it in the calling function

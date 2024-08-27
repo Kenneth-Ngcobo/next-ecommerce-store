@@ -4,7 +4,7 @@ import LoadingPage from "../../../loading";
 import ErrorPage from "../../../error";
 
 export default async function FilteredProductsPage({ params }) {
-  console.log("params = ", params);
+  //console.log("params = ", params);
   const { slug } = params;
 
   // Parsing slug to extract filters
@@ -25,7 +25,7 @@ export default async function FilteredProductsPage({ params }) {
     }
   });
 
-  console.log("selectedCategory = ", selectedCategory);
+  //console.log("selectedCategory = ", selectedCategory);
 
   // // Prepare query parameters for fetching products
   const query = new URLSearchParams({
@@ -34,13 +34,16 @@ export default async function FilteredProductsPage({ params }) {
     sort: sortOrder,
   }).toString();
 
-  console.log("query = ", query);
+  //console.log("query = ", query);
 
   // Fetch filtered products
   try {
-    const products = await fetchProducts2(query); // Modify fetchProducts to handle query parameters
+    console.log("About to call fetchProducts2");
+    const products = await fetchProducts2(query, 1); // Modify fetchProducts to handle query parameters
+    console.log("slug products = ", products);
     return <ProductGrid products={products} currentPage={1} />;
   } catch (error) {
+    console.log("error = ", error);
     return <ErrorPage error={error} />;
   }
 }
