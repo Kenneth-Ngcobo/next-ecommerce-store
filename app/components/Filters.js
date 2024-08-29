@@ -20,7 +20,7 @@ export default function Filters({
     async function fetchCategories() {
       try {
         const response = await fetch(
-          "http://https://next-ecommerce-api.vercel.app/categories"
+          "https://next-ecommerce-api.vercel.app/categories"
         );
         const data = await response.json();
         setCategories(data);
