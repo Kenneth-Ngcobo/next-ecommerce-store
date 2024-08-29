@@ -5,9 +5,12 @@ import ErrorPage from "../../error"; // Adjust path as needed
 
 async function getProduct(id) {
   try {
-    const response = await fetch(`https://dummyjson.com/products/${id}`, {
-      next: { revalidate: 60 }, // Cache revalidation time (adjust as needed)
-    });
+    const response = await fetch(
+      `https://next-ecommerce-api.vercel.app/products/${id}`,
+      {
+        next: { revalidate: 60 }, // Cache revalidation time (adjust as needed)
+      }
+    );
     if (!response.ok) {
       throw new Error("Product not found");
     }

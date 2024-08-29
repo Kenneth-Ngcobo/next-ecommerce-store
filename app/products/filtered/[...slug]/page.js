@@ -1,4 +1,4 @@
-import { fetchProducts2 } from "../../../lib/fetchProducts2";
+import { fetchProducts } from "../../../lib/fetchProducts";
 import ProductGrid from "../../../components/ProductGrid";
 import LoadingPage from "../../../loading";
 import ErrorPage from "../../../error";
@@ -13,15 +13,18 @@ export default async function FilteredProductsPage({ params }) {
 
   let searchTerm = "";
   let selectedCategory = "";
-  let sortOrder = "asc";
+  let sortBy = "";
+  let sortOrder = "";
 
   slug.forEach((part) => {
     if (part.startsWith("search-")) {
       searchTerm = part.replace("search-", "");
     } else if (part.startsWith("category-")) {
       selectedCategory = part.replace("category-", "");
-    } else if (part.startsWith("sort-")) {
-      sortOrder = part.replace("sort-", "");
+    } else if (part.startsWith("sortBy-")) {
+      sortBy = part.replace("sortBy-", "");
+    } else if (part.startsWith("order-")) {
+      sortOrder = part.replace("order-", "");
     }
   });
 
@@ -31,16 +34,16 @@ export default async function FilteredProductsPage({ params }) {
   const query = new URLSearchParams({
     search: searchTerm,
     category: selectedCategory,
-    sort: sortOrder,
+    sortBy: sortBy,
+    order: sortOrder,
   }).toString();
 
-  //console.log("query = ", query);
+  console.log("query = ", query);
 
   // Fetch filtered products
   try {
-    console.log("About to call fetchProducts2");
-    const products = await fetchProducts2(query, 1); // Modify fetchProducts to handle query parameters
-    console.log("slug products = ", products);
+    const products = await fetchProducts(query, 1); // Modify fetchProducts to handle query parameters
+
     return <ProductGrid products={products} currentPage={1} />;
   } catch (error) {
     console.log("error = ", error);

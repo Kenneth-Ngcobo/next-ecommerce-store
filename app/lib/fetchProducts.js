@@ -1,10 +1,13 @@
-export async function fetchProducts(page) {
+export async function fetchProducts(query, page) {
   const PRODUCTS_PER_PAGE = 20;
-  const url = `http://localhost:2000/products?limit=${PRODUCTS_PER_PAGE}&skip=${
+  let url = `https://next-ecommerce-api.vercel.app/products?limit=${PRODUCTS_PER_PAGE}&skip=${
     (page - 1) * PRODUCTS_PER_PAGE
   }`;
+  if (query) {
+    url = url + `&${query}`;
+  }
+
   try {
-    console.log("fetchProducts url = ", url);
     const res = await fetch(url);
 
     if (!res.ok) {
@@ -14,7 +17,7 @@ export async function fetchProducts(page) {
     }
 
     const data = await res.json();
-    //console.log(data);
+    //console.log("data = ", data);
     return data;
   } catch (error) {
     console.error("Error fetching products:", error);

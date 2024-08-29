@@ -19,7 +19,9 @@ export default function Filters({
   useEffect(() => {
     async function fetchCategories() {
       try {
-        const response = await fetch("http://localhost:2000/categories");
+        const response = await fetch(
+          "http://https://next-ecommerce-api.vercel.app/categories"
+        );
         const data = await response.json();
         setCategories(data);
       } catch (error) {
@@ -54,7 +56,7 @@ export default function Filters({
 
     if (searchTerm) slugParts.push(`search-${searchTerm}`);
     if (selectedCategory) slugParts.push(`category-${selectedCategory}`);
-    if (sortOrder) slugParts.push(`sort-${sortOrder}`);
+    if (sortOrder) slugParts.push(`sortBy-price/order-${sortOrder}`);
 
     const slug = slugParts.length > 0 ? slugParts.join("/") : "all";
 
@@ -92,6 +94,7 @@ export default function Filters({
           onChange={handleSortChange}
           className="p-2 border border-gray-300 rounded-lg w-full"
         >
+          <option value="">Default</option>
           <option value="asc">Price: Low to High</option>
           <option value="desc">Price: High to Low</option>
         </select>
