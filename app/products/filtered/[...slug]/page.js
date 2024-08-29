@@ -4,12 +4,7 @@ import LoadingPage from "../../../loading";
 import ErrorPage from "../../../error";
 
 export default async function FilteredProductsPage({ params }) {
-  //console.log("params = ", params);
   const { slug } = params;
-
-  // Parsing slug to extract filters
-  const searchParams = new URLSearchParams();
-  //const slugParts = slug.split("/");
 
   let searchTerm = "";
   let selectedCategory = "";
@@ -27,8 +22,6 @@ export default async function FilteredProductsPage({ params }) {
       sortOrder = part.replace("order-", "");
     }
   });
-
-  //console.log("selectedCategory = ", selectedCategory);
 
   // // Prepare query parameters for fetching products
   const query = new URLSearchParams({

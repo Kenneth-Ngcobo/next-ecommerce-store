@@ -1,4 +1,4 @@
-"use client"; // Add this if ProductGrid has client-side interactivity
+"use client";
 
 import ProductCard from "./ProductCard";
 

@@ -21,6 +21,6 @@ export async function fetchProducts(query, page) {
     return data;
   } catch (error) {
     console.error("Error fetching products:", error);
-    throw error; // Rethrow the error to handle it in the calling function
+    throw error;
   }
 }

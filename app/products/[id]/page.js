@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
-import BackButton from "../../components/BackButton"; // Adjust path as needed
-import LoadingPage from "../../loading"; // Adjust path as needed
-import ErrorPage from "../../error"; // Adjust path as needed
+import BackButton from "../../components/BackButton";
+import LoadingPage from "../../loading";
+import ErrorPage from "../../error";
 
 async function getProduct(id) {
   try {
