@@ -1,6 +1,7 @@
 "use client";
 
 import ProductCard from "./ProductCard";
+import Link from "next/link";
 
 export default function ProductGrid({ products, currentPage }) {
   if (!products || products.length === 0) {
@@ -19,7 +20,7 @@ export default function ProductGrid({ products, currentPage }) {
       </div>
       {/* Pagination controls */}
       <div className="flex justify-center mt-8">
-        <a
+        <Link
           href={`/products?page=${currentPage - 1}`}
           className={`px-4 py-2 bg-gray-700 text-white rounded-lg mr-2 ${
             currentPage === 1 ? "cursor-not-allowed opacity-50" : ""
@@ -27,13 +28,13 @@ export default function ProductGrid({ products, currentPage }) {
           aria-disabled={currentPage === 1}
         >
           Previous
-        </a>
-        <a
+        </Link>
+        <Link
           href={`/products?page=${currentPage + 1}`}
           className="px-4 py-2 bg-gray-700 text-white rounded-lg"
         >
           Next
-        </a>
+        </Link>
       </div>
     </div>
   );
