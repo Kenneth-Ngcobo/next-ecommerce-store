@@ -5,7 +5,7 @@ export default function Header() {
     <header className="bg-blue-600 p-4">
       <nav className="container mx-auto flex justify-between items-center">
         <div className="text-white text-lg font-semibold">
-          <Link href="/">MyApp</Link>
+          <Link href="/">SwftCart</Link>
         </div>
         <ul className="flex space-x-4">
           <li>
@@ -13,11 +13,7 @@ export default function Header() {
               Home
             </Link>
           </li>
-          <li>
-            <Link href="/about" className="text-white hover:text-gray-200">
-              About
-            </Link>
-          </li>
+
           <li>
             <Link href="/login" className="text-white hover:text-gray-200">
               Login
