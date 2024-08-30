@@ -1,4 +1,5 @@
 import Filters from "./components/Filters";
+import Header from "./components/Header";
 import "./globals.css";
 
 export const metadata = {
@@ -11,6 +12,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <div className="container mx-auto px-4">
+          <Header />
           <Filters />
           <main>{children}</main>
         </div>
