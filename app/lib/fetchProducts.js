@@ -1,7 +1,7 @@
 export async function fetchProducts(query, page) {
   const apiURL = process.env.NEXT_PUBLIC_API_URL;
   const PRODUCTS_PER_PAGE = 20;
-  let url = `${apiURL}/products?limit=${PRODUCTS_PER_PAGE}&skip=${
+  let url = `${apiURL}/api/products?limit=${PRODUCTS_PER_PAGE}&skip=${
     (page - 1) * PRODUCTS_PER_PAGE
   }`;
   if (query) {

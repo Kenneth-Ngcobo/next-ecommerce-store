@@ -20,7 +20,7 @@ export default function Filters({
     async function fetchCategories() {
       const apiURL = process.env.NEXT_PUBLIC_API_URL;
       try {
-        const response = await fetch(`${apiURL}/categories`);
+        const response = await fetch(`${apiURL}/api/categories`);
         const data = await response.json();
         setCategories(data);
       } catch (error) {
