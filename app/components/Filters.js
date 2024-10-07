@@ -19,9 +19,7 @@ export default function Filters({
   useEffect(() => {
     async function fetchCategories() {
       try {
-        const response = await fetch(
-          "https://next-ecommerce-api.vercel.app/categories"
-        );
+        const response = await fetch(" http://localhost:3000/api/categories");
         const data = await response.json();
         setCategories(data);
       } catch (error) {

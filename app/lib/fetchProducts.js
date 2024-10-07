@@ -1,6 +1,6 @@
 export async function fetchProducts(query, page) {
   const PRODUCTS_PER_PAGE = 20;
-  let url = `https://next-ecommerce-api.vercel.app/products?limit=${PRODUCTS_PER_PAGE}&skip=${
+  let url = ` http://localhost:3000/api/products?limit=${PRODUCTS_PER_PAGE}&skip=${
     (page - 1) * PRODUCTS_PER_PAGE
   }`;
   if (query) {

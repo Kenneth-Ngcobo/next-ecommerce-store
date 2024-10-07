@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import { fetchCategories } from "db/fetchCategories";
+import { fetchDBCategories } from "db/fetchDBCategories";
 
 export async function GET(params) {
-  const categories = await fetchCategories();
+  const categories = await fetchDBCategories();
   return NextResponse.json(categories);
 }
