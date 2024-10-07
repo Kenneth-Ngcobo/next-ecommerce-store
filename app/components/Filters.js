@@ -18,8 +18,9 @@ export default function Filters({
 
   useEffect(() => {
     async function fetchCategories() {
+      const apiURL = process.env.NEXT_PUBLIC_API_URL;
       try {
-        const response = await fetch(" http://localhost:3000/api/categories");
+        const response = await fetch(`${NEXT_PUBLIC_API_URL}/categories`);
         const data = await response.json();
         setCategories(data);
       } catch (error) {
