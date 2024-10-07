@@ -1,6 +1,9 @@
 export async function fetchProducts(query, page) {
   const apiURL = process.env.NEXT_PUBLIC_API_URL;
   const PRODUCTS_PER_PAGE = 20;
+  if (!apiURL) {
+    return null;
+  }
   let url = `${apiURL}/api/products?limit=${PRODUCTS_PER_PAGE}&skip=${
     (page - 1) * PRODUCTS_PER_PAGE
   }`;

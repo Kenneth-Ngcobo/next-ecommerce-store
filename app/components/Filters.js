@@ -19,6 +19,9 @@ export default function Filters({
   useEffect(() => {
     async function fetchCategories() {
       const apiURL = process.env.NEXT_PUBLIC_API_URL;
+      if (!apiURL) {
+        return null;
+      }
       try {
         const response = await fetch(`${apiURL}/api/categories`);
         const data = await response.json();
