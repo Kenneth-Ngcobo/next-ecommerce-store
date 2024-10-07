@@ -4,13 +4,11 @@ import LoadingPage from "../../loading";
 import ErrorPage from "../../error";
 
 async function getProduct(id) {
+  const apiURL = process.env.NEXT_PUBLIC_API_URL;
   try {
-    const response = await fetch(
-      `https://next-ecommerce-api.vercel.app/products/${id}`,
-      {
-        next: { revalidate: 60 }, // Cache revalidation time (adjust as needed)
-      }
-    );
+    const response = await fetch(`${apiURL}/api/products/${id}`, {
+      next: { revalidate: 60 }, // Cache revalidation time (adjust as needed)
+    });
     if (!response.ok) {
       throw new Error("Product not found");
     }
