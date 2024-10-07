@@ -13,6 +13,7 @@ const firebaseConfig = {
 };
 
 console.log("apiKey process.env = ", firebaseConfig.apiKey);
+console.log("NEXT_PUBLIC_API_URL = ", process.env.NEXT_PUBLIC_API_URL);
 
 // Initialize Firebase app and Firestore
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
